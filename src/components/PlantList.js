@@ -14,7 +14,7 @@ export default class PlantList extends Component {
       const plantData = await axios.get("http://localhost:3333/plants");
       this.setState({
         ...this.state,
-        plants: plantData.data
+        plants: plantData.data,
       });
     } catch (error) {
       console.error("[AXIOS] Could not get plant data!", error);
