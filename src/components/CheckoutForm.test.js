@@ -26,14 +26,17 @@ test("shows success message on submit with form details", async () => {
   };
   const testKeys = Object.keys(testInputs);
   const testValues = Object.values(testInputs);
+
   // Select all text inputs
   const textFields = [];
   testKeys.forEach((key) => {
     textFields.push(screen.getByLabelText(`${key}:`));
   });
+
   // Select the submit button
   const checkoutElements = screen.getAllByText(/checkout/i);
   const submitButton = checkoutElements[checkoutElements.length - 1];
+  
   // Simulate user interactions
   textFields.forEach((input, index) => {
     userEvent.type(input, testValues[index]);
